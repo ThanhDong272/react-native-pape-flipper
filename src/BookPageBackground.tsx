@@ -1,5 +1,5 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, ViewStyle } from 'react-native';
 import { BookSpine } from './BookPage/BookSpine';
 import type { Size } from './types';
 
@@ -13,6 +13,7 @@ type IBookPageBackgroundProps = {
   renderPage?: (data: any) => any;
   renderLastPage?: () => any;
   shouldRenderLastPage: boolean;
+  pageContainerStyle?: ViewStyle;
 };
 
 const BookPageBackground: React.FC<IBookPageBackgroundProps> = ({
@@ -25,13 +26,14 @@ const BookPageBackground: React.FC<IBookPageBackgroundProps> = ({
   renderPage,
   renderLastPage,
   shouldRenderLastPage,
+  pageContainerStyle,
 }) => {
   const leftPageStyle = getPageStyle(false, true);
   const rightPageStyle = getPageStyle(true, true);
 
   return (
     <View style={styles.container}>
-      <View style={styles.pageContainer}>
+      <View style={[styles.pageContainer, { ...pageContainerStyle }]}>
         {left && renderPage && (
           <View style={[leftPageStyle]}>{renderPage(left)}</View>
         )}
@@ -39,7 +41,7 @@ const BookPageBackground: React.FC<IBookPageBackgroundProps> = ({
           <BookSpine right={false} containerSize={containerSize} />
         )}
       </View>
-      <View style={styles.pageContainer}>
+      <View style={[styles.pageContainer, { ...pageContainerStyle }]}>
         {right && renderPage && (
           <View style={[rightPageStyle]}>{renderPage(right)}</View>
         )}
@@ -62,8 +64,6 @@ const styles = StyleSheet.create({
     flex: 1,
     backfaceVisibility: 'hidden',
     overflow: 'hidden',
-    justifyContent: 'center',
-    // backgroundColor: 'white',
   },
   container: {
     position: 'absolute',
@@ -71,5 +71,8 @@ const styles = StyleSheet.create({
     height: '100%',
     width: '100%',
     flexDirection: 'row',
+  },
+  scrollContent: {
+    flexGrow: 1,
   },
 });

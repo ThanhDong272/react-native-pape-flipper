@@ -1,6 +1,6 @@
 {
-  "name": "react-native-flipper-cli",
-  "version": "0.1.0",
+  "name": "@thanhdong272/react-native-page-flipper",
+  "version": "1.0.0",
   "description": "This package allows you use a cool page curl effect on your React Native apps, it works on Android, iOS, and Web",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
@@ -41,14 +41,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dangnghia2101/react-native-flipper-cli.git"
+    "url": "git+https://github.com/ThanhDong272/react-native-pape-flipper.git"
   },
-  "author": " Nghia Dang <75264221+dangnghia2101@users.noreply.github.com> (https://github.com/dangnghia2101)",
+  "author": "Thanh Dong <dongthanh272@gmail.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dangnghia2101/react-native-flipper-cli/issues"
+    "url": "https://github.com/ThanhDong272/react-native-pape-flipper/issues"
   },
-  "homepage": "https://github.com/dangnghia2101/react-native-flipper-cli#readme",
+  "homepage": "https://github.com/ThanhDong272/react-native-pape-flipper#readme",
   "publishConfig": {
     "registry": "https://registry.npmjs.org/"
   },
@@ -69,9 +69,9 @@
     "react": "18.2.0",
     "react-native": "0.73.6",
     "react-native-builder-bob": "^0.23.2",
-    "react-native-gesture-handler": "^2.16.0",
+    "react-native-gesture-handler": "~2.16.1",
     "react-native-linear-gradient": "^2.8.3",
-    "react-native-reanimated": "~3.3.0",
+    "react-native-reanimated": "~3.10.1",
     "release-it": "^15.0.0",
     "turbo": "^1.10.7",
     "typescript": "^5.2.2"

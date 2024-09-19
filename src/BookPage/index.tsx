@@ -40,6 +40,7 @@ export type IBookPageProps = {
   onPageDrag?: () => void;
   onPageDragEnd?: () => void;
   renderPage?: (data: any) => any;
+  pageContainerStyle?: ViewStyle;
 };
 
 export type BookPageInstance = {
@@ -71,6 +72,7 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
       onPageDragEnd,
       onPageDragStart,
       renderPage,
+      pageContainerStyle,
     },
     ref
   ) => {
@@ -317,9 +319,14 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
 
           {/* BACK */}
           <Animated.View
-            style={[styles.pageContainer, backStyle, { overflow: 'visible' }]}
+            style={[
+              styles.pageContainer,
+              backStyle,
+              { overflow: 'visible' },
+              pageContainerStyle,
+            ]}
           >
-            <View style={styles.pageContainer}>
+            <View style={[{ ...styles.pageContainer }]}>
               {backUrl ? (
                 renderPage && (
                   <Animated.View style={[backPageStyle, animatedBackPageStyle]}>
@@ -360,7 +367,9 @@ const BookPage = React.forwardRef<BookPageInstance, IBookPageProps>(
             )}
           </Animated.View>
           {/* FRONT */}
-          <Animated.View style={[styles.pageContainer, frontStyle]}>
+          <Animated.View
+            style={[styles.pageContainer, frontStyle, pageContainerStyle]}
+          >
             {frontUrl ? (
               renderPage && (
                 <Animated.View style={[frontPageStyle]}>
@@ -396,9 +405,5 @@ const styles = StyleSheet.create({
     position: 'absolute',
     backfaceVisibility: 'hidden',
     overflow: 'hidden',
-    // justifyContent: 'center',
-    // alignItems: 'flex-end',
-    // backgroundColor: 'rgba(0,0,0,0)',
-    // backgroundColor: 'white',
   },
 });

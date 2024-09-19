@@ -7,7 +7,7 @@ Check out the [demo](https://chris24elias.github.io/react-native-page-flipper/) 
 ## Installation
 
 ```sh
-yarn add react-native-flipper-cli
+yarn add @thanhdong272/react-native-page-flipper
 ```
 
 In order for this package to work properly, its built using expo-linear-gradient,react-native-gesture-handler,react-native-linear-gradient, and react-native-reanimated. So make sure you also have these installed,

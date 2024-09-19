@@ -39,6 +39,7 @@ export type IPageFlipperProps = {
   renderPage?: (data: any) => any;
   pageSize: Size;
   contentContainerStyle?: ViewStyle;
+  pageContainerStyle?: ViewStyle;
 };
 
 export type PageFlipperInstance = {
@@ -88,6 +89,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
       renderPage,
       pageSize = { height: 600, width: 400 },
       contentContainerStyle,
+      pageContainerStyle,
     },
     ref
   ) => {
@@ -206,7 +208,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
       };
       initialize();
       // eslint-disable-next-line
-        }, [data, portrait, singleImageMode]);
+    }, [data, portrait, singleImageMode]);
 
     useEffect(() => {
       if (state.nextPageIndex !== undefined) {
@@ -223,7 +225,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
         }
       }
       // eslint-disable-next-line
-        }, [state.nextPageIndex]);
+    }, [state.nextPageIndex]);
 
     const goToPage = useCallback(
       (index: number) => {
@@ -486,6 +488,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                     back={prev}
                     key={`left${pageIndex}`}
                     {...bookPageProps}
+                    pageContainerStyle={pageContainerStyle}
                   />
                 )}
                 {!next ? (
@@ -498,6 +501,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                     back={next}
                     key={`right${pageIndex}`}
                     {...bookPageProps}
+                    pageContainerStyle={pageContainerStyle}
                   />
                 )}
                 <BookPageBackground
@@ -510,6 +514,7 @@ const PageFlipper = React.forwardRef<PageFlipperInstance, IPageFlipperProps>(
                   renderPage={renderPage}
                   renderLastPage={renderLastPage}
                   shouldRenderLastPage={shouldRenderLastPage}
+                  pageContainerStyle={pageContainerStyle}
                 />
               </View>
             ) : (
@@ -566,15 +571,6 @@ const styles = StyleSheet.create({
   },
   contentContainer: {
     flexDirection: 'row',
-    // shadowColor: '#000',
-    // shadowOffset: {
-    //     width: 0,
-    //     height: 2,
-    // },
-    // shadowOpacity: 0.25,
-    // shadowRadius: 3.84,
-    // elevation: 5,
-    backgroundColor: 'white',
   },
   content: {
     flex: 1,
