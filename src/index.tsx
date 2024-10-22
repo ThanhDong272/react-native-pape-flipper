@@ -22,7 +22,7 @@ import { createPages } from './utils/utils';
 import { BookPageBackground } from './BookPageBackground';
 
 export type IPageFlipperProps = {
-  data: string[];
+  data: any[];
   enabled?: boolean; // gestures
   pressable?: boolean; // are the pages tappable
   singleImageMode?: boolean;
