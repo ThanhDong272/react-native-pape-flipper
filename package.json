@@ -1,6 +1,6 @@
 {
   "name": "@thanhdong272/react-native-page-flipper",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "This package allows you use a cool page curl effect on your React Native apps, it works on Android, iOS, and Web",
   "main": "lib/commonjs/index.js",
   "module": "lib/module/index.js",
